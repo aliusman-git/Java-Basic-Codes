@@ -1,6 +1,4 @@
-import java.util.Scanner;
-
-public class Percentagecalculator {
+{
     public static void main(String[] args) {
         Scanner input=new Scanner(System.in);
         int sum=0;
@@ -11,36 +9,45 @@ public class Percentagecalculator {
             int marks= input.nextInt();
             if (marks<33){
                 System.out.println("You are fail");
-                return;
+                break;
             }
 
             if ( marks <0 || marks >100){
                 System.out.println("invalid marks entered");
-                return;
+                break;
             }
             sum+=marks;
         }
         int totalmarks=subjects*100;
         double percentage=sum/(double)totalmarks*100;
         String grade="";
+        String Remarks="";
         if(percentage>=90){
             grade="A+";
+            Remarks="keep it up champ";
         }
         else if(percentage>=80){
             grade="A";
+            Remarks="keep it up champ";
         }
         else if (percentage>=70){
             grade="B";
+            Remarks="Nice work";
         } else if (percentage>=60) {
             grade="C";
+            Remarks="you have potential to achieve more than this";
         } else if (percentage>=50) {
             grade="D";
+            Remarks="you have potential to achieve more than this";
         } else if (percentage>=40) {
-grade="E";
+            grade="E";
+            Remarks="Need improvement";
         } else{
             grade="Fail";
+            Remarks="Better luck next time";
         }
         System.out.println("percentage= " + percentage);
-        System.out.println("grade is " + grade);
+        System.out.println("Your grade is " + grade );
+        System.out.printf(Remarks);
     }
 }
