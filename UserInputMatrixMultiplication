@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class matrixMultiplication {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        // Rows and Column of A
+        System.out.print("Enter number of rows for first matrix: ");
+        int r1 = sc.nextInt();
+        System.out.print("Enter number of column for first matrix: ");
+        int c1 = sc.nextInt();
+        // Rows and Column of B
+        System.out.print("Enter number of rows for second matrix: ");
+        int r2 = sc.nextInt();
+        System.out.print("Enter number of column for second matrix: ");
+        int c2 = sc.nextInt();
+        if (c1 != r2) System.out.println("Multiplication cannot form: ");
+        else {
+            int A[][] = new int[r1][c1];
+            int B[][] = new int[r2][c2];
+            int C[][] = new int[r1][c2];
+            //A
+            System.out.println("Enter first matrix: ");
+            for (int i = 0; i < r1; i++) {
+                for (int j = 0; j < c1; j++) {
+                    System.out.print("Enter element of row: " + (i+1) + " and column: " + (j+1) + ": ");
+                    A[i][j] = sc.nextInt();
+                }
+                System.out.println();
+            }
+            //B
+            System.out.println("Enter Second matrix: ");
+            for (int i = 0; i < r2; i++) {
+                for (int j = 0; j < c2; j++) {
+                    System.out.print("Enter element of row: " + (i+1) + " and column: " + (j+1) + ": ");
+                     B[i][j] = sc.nextInt();
+                }
+                System.out.println();
+            }
+            //C
+            for (int i = 0; i < r1; i++) {
+                for (int j = 0; j < c2; j++) {
+                    C[i][j]=0;
+                    for (int k = 0; k < c1; k++) {
+                        C[i][j]+=A[i][k]*B[k][j];
+                    }
+                }
+            }
+            System.out.println("   Resultant Matrix");
+            System.out.println("x--------------------x");
+            for (int i = 0; i < r1; i++) {
+                System.out.print("{ ");
+                for (int j = 0; j < c2; j++) {
+                    System.out.print(C[i][j]+ ", ");
+                }
+                System.out.println("}");
+            }
+        }
+        sc.close();
+    }
+}
